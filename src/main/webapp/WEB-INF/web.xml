@@ -1,10 +1,36 @@
-<?xml version="1.0" encoding="utf-8"?>
-<web-app
-        version="2.5"
-        xmlns="http://java.sun.com/xml/ns/javaee"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+<?xml version="1.0" encoding="utf-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
+
+	<servlet>
+    	<display-name>Remote API Servlet</display-name>
+    	<servlet-name>RemoteApiServlet</servlet-name>
+    	<servlet-class>com.google.apphosting.utils.remoteapi.RemoteApiServlet</servlet-class>
+    	<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>RemoteApiServlet</servlet-name>
+    	<url-pattern>/remote_api</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+        <servlet-name>GoboServlet</servlet-name>
+        <servlet-class>gobo.GoboServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>GoboServlet</servlet-name>
+        <url-pattern>*.gobo</url-pattern>
+    </servlet-mapping>
+
+    <security-constraint>
+        <web-resource-collection>
+            <url-pattern>*.gobo</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+	
     <servlet>
         <servlet-name>ClearHitGroupsIndex</servlet-name>
         <servlet-class>com.tracker.servlet.task.ClearHitGroupsIndex</servlet-class>
@@ -124,14 +150,7 @@
 	    </servlet-class>
 	    <init-param>
 	      <param-name>services</param-name>
-	      <param-value>
-	        com.tracker.endpoints.ArrivalCompletionsEndpoint,
-	        com.tracker.endpoints.HitGroupEndpoint,
-	        com.tracker.endpoints.HitInstanceEndpoint,
-	        com.tracker.endpoints.MarketStatisticsEndpoint,
-	        com.tracker.endpoints.RequesterEndpoint,
-	        com.tracker.endpoints.HitContentEndpoint
-	      </param-value>
+	      <param-value>com.tracker.endpoints.ArrivalCompletionsEndpoint,com.tracker.endpoints.HitContentEndpoint,com.tracker.endpoints.HitGroupEndpoint,com.tracker.endpoints.HitInstanceEndpoint,com.tracker.endpoints.MarketStatisticsEndpoint,com.tracker.endpoints.RequesterEndpoint</param-value>
 	    </init-param>
 	</servlet>
 	

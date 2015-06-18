@@ -1,0 +1,536 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://mturkfabc.appspot.com/_ah/api",
+  "name" : "mturk",
+  "version" : "v1",
+  "description" : "The API for mturk-tracker",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://mturkfabc.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "mturk.arrivalCompletions.list" : {
+      "path" : "arrivalCompletions/list",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.tracker.endpoints.ArrivalCompletionsEndpoint.list",
+      "request" : {
+        "parameters" : {
+          "from" : {
+            "type" : "string",
+            "required" : true
+          },
+          "to" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mturk.hitgroup.search" : {
+      "path" : "hitgroup/search",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.tracker.endpoints.HitGroupEndpoint.search",
+      "request" : {
+        "parameters" : {
+          "all" : {
+            "type" : "string",
+            "required" : false
+          },
+          "requesterName" : {
+            "type" : "string",
+            "required" : false
+          },
+          "title" : {
+            "type" : "string",
+            "required" : false
+          },
+          "description" : {
+            "type" : "string",
+            "required" : false
+          },
+          "hitContent" : {
+            "type" : "string",
+            "required" : false
+          },
+          "keyword" : {
+            "type" : "string",
+            "required" : false
+          },
+          "qualification" : {
+            "type" : "string",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mturk.hitgroup.getByGroupId" : {
+      "path" : "hitgroup/getByGroupId",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.tracker.endpoints.HitGroupEndpoint.getByGroupId",
+      "request" : {
+        "parameters" : {
+          "groupId" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mturk.hitgroup.listByRequesterId" : {
+      "path" : "hitgroup/listByRequesterId",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.tracker.endpoints.HitGroupEndpoint.listByRequesterId",
+      "request" : {
+        "parameters" : {
+          "requesterId" : {
+            "type" : "string",
+            "required" : true
+          },
+          "days" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mturk.hitinstance.list" : {
+      "path" : "hitinstance/list",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.tracker.endpoints.HitInstanceEndpoint.list",
+      "request" : {
+        "parameters" : {
+          "groupId" : {
+            "type" : "string",
+            "required" : true
+          },
+          "from" : {
+            "type" : "string",
+            "required" : false
+          },
+          "to" : {
+            "type" : "string",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mturk.marketStatistics.list" : {
+      "path" : "marketStatistics/list",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.tracker.endpoints.MarketStatisticsEndpoint.list",
+      "request" : {
+        "parameters" : {
+          "from" : {
+            "type" : "string",
+            "required" : true
+          },
+          "to" : {
+            "type" : "string",
+            "required" : true
+          },
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mturk.requester.get" : {
+      "path" : "requester",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.tracker.endpoints.RequesterEndpoint.get",
+      "request" : {
+        "parameters" : {
+          "requesterId" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mturk.toprequester.list" : {
+      "path" : "toprequester/list",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.tracker.endpoints.RequesterEndpoint.listTopRequesters",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "mturk.hitcontent.getByGroupId" : {
+      "path" : "hitcontent/getByGroupId",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.tracker.endpoints.HitContentEndpoint.getByGroupId",
+      "request" : {
+        "parameters" : {
+          "groupId" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "JsonMap" : {
+        "id" : "JsonMap",
+        "type" : "object"
+      },
+      "JsonMapCollection" : {
+        "id" : "JsonMapCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "JsonMap"
+            }
+          }
+        }
+      },
+      "HITgroup" : {
+        "id" : "HITgroup",
+        "type" : "object",
+        "properties" : {
+          "groupId" : {
+            "type" : "string"
+          },
+          "requesterId" : {
+            "type" : "string"
+          },
+          "title" : {
+            "type" : "string"
+          },
+          "description" : {
+            "type" : "string"
+          },
+          "keywords" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "expirationDate" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "reward" : {
+            "type" : "integer"
+          },
+          "timeAlloted" : {
+            "type" : "integer"
+          },
+          "qualificationsRequired" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "firstSeen" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "lastSeen" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "active" : {
+            "type" : "boolean"
+          }
+        }
+      },
+      "HITgroupCollection" : {
+        "id" : "HITgroupCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "HITgroup"
+            }
+          }
+        }
+      },
+      "HITinstance" : {
+        "id" : "HITinstance",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "groupId" : {
+            "type" : "string"
+          },
+          "timestamp" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "hitsAvailable" : {
+            "type" : "integer"
+          },
+          "hitsDiff" : {
+            "type" : "integer"
+          },
+          "rewardsAvailable" : {
+            "type" : "integer"
+          },
+          "rewardDiff" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "HITinstanceCollection" : {
+        "id" : "HITinstanceCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "HITinstance"
+            }
+          }
+        }
+      },
+      "CollectionResponse_MarketStatistics" : {
+        "id" : "CollectionResponse_MarketStatistics",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "MarketStatistics"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      },
+      "MarketStatistics" : {
+        "id" : "MarketStatistics",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          },
+          "timestamp" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "hitGroupsAvailable" : {
+            "type" : "integer"
+          },
+          "hitsAvailable" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "HITrequester" : {
+        "id" : "HITrequester",
+        "type" : "object",
+        "properties" : {
+          "requesterId" : {
+            "type" : "string"
+          },
+          "requesterName" : {
+            "type" : "string"
+          },
+          "lastActivity" : {
+            "type" : "string",
+            "format" : "date-time"
+          }
+        }
+      },
+      "TopRequester" : {
+        "id" : "TopRequester",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "requesterId" : {
+            "type" : "string"
+          },
+          "requesterName" : {
+            "type" : "string"
+          },
+          "hits" : {
+            "type" : "integer"
+          },
+          "reward" : {
+            "type" : "integer"
+          },
+          "projects" : {
+            "type" : "integer"
+          },
+          "timestamp" : {
+            "type" : "string",
+            "format" : "date-time"
+          },
+          "groupId" : {
+            "type" : "string"
+          }
+        }
+      },
+      "TopRequesterCollection" : {
+        "id" : "TopRequesterCollection",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "TopRequester"
+            }
+          }
+        }
+      },
+      "HITcontent" : {
+        "id" : "HITcontent",
+        "type" : "object",
+        "properties" : {
+          "groupId" : {
+            "type" : "string"
+          },
+          "content" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.tracker.endpoints.ArrivalCompletionsEndpoint.list" : {
+        "response" : {
+          "$ref" : "JsonMap"
+        }
+      },
+      "com.tracker.endpoints.HitGroupEndpoint.search" : {
+        "response" : {
+          "$ref" : "JsonMapCollection"
+        }
+      },
+      "com.tracker.endpoints.HitGroupEndpoint.getByGroupId" : {
+        "response" : {
+          "$ref" : "HITgroup"
+        }
+      },
+      "com.tracker.endpoints.HitGroupEndpoint.listByRequesterId" : {
+        "response" : {
+          "$ref" : "HITgroupCollection"
+        }
+      },
+      "com.tracker.endpoints.HitInstanceEndpoint.list" : {
+        "response" : {
+          "$ref" : "HITinstanceCollection"
+        }
+      },
+      "com.tracker.endpoints.MarketStatisticsEndpoint.list" : {
+        "response" : {
+          "$ref" : "CollectionResponse_MarketStatistics"
+        }
+      },
+      "com.tracker.endpoints.RequesterEndpoint.get" : {
+        "response" : {
+          "$ref" : "HITrequester"
+        }
+      },
+      "com.tracker.endpoints.RequesterEndpoint.listTopRequesters" : {
+        "response" : {
+          "$ref" : "TopRequesterCollection"
+        }
+      },
+      "com.tracker.endpoints.HitContentEndpoint.getByGroupId" : {
+        "response" : {
+          "$ref" : "HITcontent"
+        }
+      }
+    }
+  }
+}

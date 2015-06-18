@@ -154,6 +154,10 @@
 						<resource>
 							<directory>${basedir}/src/main/webapp/WEB-INF</directory>
 							<filtering>true</filtering>
+							<excludes>
+								<exclude>**/*.jar</exclude>
+								<exclude>**/lib/*.jar</exclude>
+							</excludes>
 							<targetPath>WEB-INF</targetPath>
 						</resource>
 					</webResources>
@@ -169,13 +173,13 @@
 						<jvmFlag>-Ddatastore.backing_store=${project.basedir}/local_db.bin</jvmFlag>
 					</jvmFlags>
 					<executions>
-			          <execution>
-			            <goals>
-			              <goal>endpoints_get_discovery_doc</goal>
-			              <goal>endpoints_get_client_lib</goal>
-			            </goals>
-			          </execution>
-			        </executions>
+						<execution>
+							<goals>
+								<goal>endpoints_get_discovery_doc</goal>
+								<goal>endpoints_get_client_lib</goal>
+							</goals>
+						</execution>
+					</executions>
 				</configuration>
 			</plugin>
 		</plugins>
